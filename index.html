@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Delights</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="index.html">Culinary Delights</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservation.html">Reservations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Welcome to Culinary Delights</h1>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="menu" class="container mt-5">
+        <h2 class="text-center">Mouth Watering Menu</h2>
+        <div class="row image-gallery">
+            <div class="col-md-4">
+                <img src="/images/appetizer.jpg" alt="Appetizer" data-toggle="modal" data-target="#imageModal" data-title="Appetizers" data-description="A delicious appetizer to start your meal.">
+            </div>
+            <div class="col-md-4">
+                <img src="images/main_course.jpg" alt="Main Course" data-toggle="modal" data-target="#imageModal" data-title="Main Course" data-description="A mouth-watering main course.">
+            </div>
+            <div class="col-md-4">
+                <img src="images/dessert.jpeg" alt="Dessert" data-toggle="modal" data-target="#imageModal" data-title="Desserts" data-description="A sweet dessert to finish your meal.">
+            </div>
+            <div class="col-md-4">
+                <img src="images/beverage.jpeg" alt="Beverage" data-toggle="modal" data-target="#imageModal" data-title="Beverages" data-description="Beverages as your heart desires">
+            </div>
+            <div class="col-md-4">
+                <img src="images/Italian.jpg" alt="Italian" data-toggle="modal" data-target="#imageModal" data-title="Italian" data-description="Italian as your heart desires">
+            </div>
+            <div class="col-md-4">
+                <img src="images/munchies.jpg" alt="Munchies" data-toggle="modal" data-target="#imageModal" data-title="Munchies" data-description="Munchies as your heart desires">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Enlarged Image and Description -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Modal Image">
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Culinary Delights. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script for Modal functionality -->
+    <script>
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var title = button.data('title');
+            var description = button.data('description');
+            var src = button.attr('src');
+
+            var modal = $(this);
+            modal.find('.modal-title').text(title);
+            modal.find('#modalImage').attr('src', src);
+            modal.find('#modalDescription').text(description);
+        });
+    </script>
+</body>
+</html>
